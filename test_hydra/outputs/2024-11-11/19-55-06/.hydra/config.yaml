@@ -1,0 +1,3 @@
+_target_: model.my_model.MyModel
+model:
+  constant_1: 114514

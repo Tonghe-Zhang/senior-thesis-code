@@ -1,0 +1,38 @@
+device: cpu
+data_shape:
+- 1
+- 28
+- 28
+batch_size: 1
+data_hidden_dim: 64
+cls_hidden_dim: 32
+time_hidden_dim: 64
+algo:
+  _target_: alg.reflow.ReFlow
+  device: ${device}
+  data_shape: ${data_shape}
+  model:
+    _target_: model.flow_mlp.FlowMLP
+    flow_mlp_cfg:
+      hidden_dims:
+      - 128
+      - 256
+      - 128
+      output_dim: 784
+      time_hidden_dim: ${time_hidden_dim}
+      cls_hidden_dim: ${cls_hidden_dim}
+      data_hidden_dim: ${data_hidden_dim}
+  train_cfg:
+    n_epochs: 50
+    eval_interval: 2
+    n_steps: 64
+    lr: 0.001
+    warmup_epochs: 5
+    max_epochs: 100
+    min_lr: 1.0e-05
+    warmup_start_lr: 1.0e-06
+    batch_size: ${batch_size}
+dataset:
+  batch_size: ${batch_size}
+  use_first_train: 2
+  use_first_eval: 2

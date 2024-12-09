@@ -1,0 +1,32 @@
+
+
+
+
+seed:42
+
+wandb:
+  entity:
+  project:
+  run:
+
+model:
+  
+
+train:
+
+
+
+
+train_config:
+  dataset_name: 'imagenet256'       # Environment name.
+  load_dir: null                    # Logging dir (if not None, save params).
+  save_dir: null                    # Logging dir (if not None, save params).
+  fid_stats: null                   # FID stats file.
+  seed: 10                          # Random seed. Must be the same across all processes.
+  log_interval: 1000                # Logging interval.
+  eval_interval: 20000              # Eval interval.
+  save_interval: 100000             # Save interval.
+  batch_size: 32                    # Mini batch size.
+  max_steps: 1000000                # Number of training steps.
+  debug_overfit: 0                  # Debug overfitting.
+  mode: 'train'                     # train or inference.

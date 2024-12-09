@@ -1,0 +1,5 @@
+_target_: model.my_model.MyModel
+model:
+  param_1: 114514
+  param_2: 1514
+  param_3: 14514
